@@ -1,17 +1,29 @@
 <template>
-  <section class="auth-form">
-    123
+  <section class="auth-page">
+    <form>
+      <input v-model="login" type="text">
+    </form>
   </section>
 </template>
 
 <script>
+
+import {ref} from "vue";
+
 export default {
-  name: "AuthPage"
+  name: "AuthPage",
+  setup() {
+    const login = ref('')
+
+    return {
+      login
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.auth-form {
+.auth-page {
   background-color: red;
 }
 </style>
