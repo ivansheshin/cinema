@@ -6,7 +6,7 @@
     <nav>
       <ul class="nav-list">
         <li v-if="true">
-          <router-link :to="'/auth'" active-class="active" class="auth" no-prefetch>
+          <router-link active-class="active" class="auth" no-prefetch to="/auth">
             Authorization
           </router-link>
         </li>
