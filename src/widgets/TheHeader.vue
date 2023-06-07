@@ -1,9 +1,3 @@
-<script>
-export default {
-  name: 'TheHeader',
-}
-</script>
-
 <template>
   <header class="header">
     <router-link active-class="active" class="auth" to="/">
@@ -52,7 +46,7 @@ export default {
           </router-link>
         </li>
         <li v-if="true">
-          <button class="auth" @click="signOut">
+          <button class="auth">
             Logout
           </button>
         </li>
@@ -61,7 +55,7 @@ export default {
   </header>
 </template>
 
-<style>
+<style lang="css" scoped>
 .header {
   position: fixed;
   top: 0;
@@ -97,9 +91,5 @@ export default {
 .auth:focus {
   color: #fff;
   background-color: #141414;
-}
-
-.active {
-  background-color: red;
 }
 </style>

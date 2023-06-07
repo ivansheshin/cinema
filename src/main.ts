@@ -19,6 +19,8 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig)
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 const app = createApp(App)
 
 app
