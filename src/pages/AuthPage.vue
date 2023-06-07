@@ -19,7 +19,7 @@ import AuthForm from '@/features/AuthForm.vue'
     left: calc(50% - 25vw);
     width: 50vw;
 
-    @media (width >= 960px) {
+    @media (width >= 1280px) {
       left: calc(50% - 400px);
       max-width: 800px;
     }
