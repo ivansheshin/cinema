@@ -15,8 +15,14 @@ import AuthForm from '@/features/AuthForm.vue'
 
   .auth-form {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 25%;
+    left: calc(50% - 25vw);
+    width: 50vw;
+
+    @media (width >= 960px) {
+      left: calc(50% - 400px);
+      max-width: 800px;
+    }
   }
 }
 </style>
