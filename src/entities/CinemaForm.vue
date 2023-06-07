@@ -11,7 +11,7 @@
 .form {
   background-color: var(--background-color);
   border: 1px solid #121212;
-  padding: 16px;
+  padding: 26px;
 
   .form__content {
     display: grid;
