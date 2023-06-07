@@ -1,24 +1,13 @@
-<template>
-    <section class="auth-page">
-        <AuthPage/>
-    </section>
-</template>
+<script lang="ts" setup>
 
-<script>
-
-import {ref} from "vue";
-
-export default {
-  name: "AuthPage",
-  setup() {
-    const login = ref('')
-
-    return {
-      login
-    }
-  }
-}
+import AuthForm from '@/features/AuthForm.vue'
 </script>
+
+<template>
+  <section class="auth-page">
+    <AuthForm />
+  </section>
+</template>
 
 <style lang="scss" scoped>
 .auth-page {

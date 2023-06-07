@@ -61,7 +61,7 @@ export default {
   </header>
 </template>
 
-<style scoped>
+<style>
 .header {
   position: fixed;
   top: 0;

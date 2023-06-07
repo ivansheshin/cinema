@@ -1,10 +1,9 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { initializeApp } from 'firebase/app'
-
 import App from './App.vue'
 
-import './assets/main.scss'
+import './assets/main.css'
 
 import router from './router'
 
