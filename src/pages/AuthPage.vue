@@ -5,12 +5,18 @@ import AuthForm from '@/features/AuthForm.vue'
 
 <template>
   <section class="auth-page">
-    <AuthForm />
+    <AuthForm class="auth-form" />
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .auth-page {
   background-color: red;
+
+  .auth-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
 }
 </style>

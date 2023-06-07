@@ -11,10 +11,14 @@ const password = ref('')
     <template #title>
       Авторизация
     </template>
-    <input v-model="login" type="text">
-    <input v-model="password" type="password">
-    <button type="button">
-      Отправить
-    </button>
+    <template #fields>
+      <input v-model="login" placeholder="login" type="text">
+      <input v-model="password" placeholder="password" type="password">
+    </template>
+    <template #actions>
+      <button type="button">
+        Отправить
+      </button>
+    </template>
   </CinemaForm>
 </template>
