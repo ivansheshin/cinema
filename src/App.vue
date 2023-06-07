@@ -23,6 +23,7 @@ console.log(getAuth())
 
 .router-view {
   height: 100%;
+  padding: 16px;
 
   &__fade-enter-active {
     transition: opacity 0.2s;
