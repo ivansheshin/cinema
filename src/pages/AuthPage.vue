@@ -1,9 +1,7 @@
 <template>
-  <section class="auth-page">
-    <form>
-      <input v-model="login" type="text">
-    </form>
-  </section>
+    <section class="auth-page">
+        <AuthPage/>
+    </section>
 </template>
 
 <script>

@@ -1,10 +1,9 @@
-<template>
-  123
-</template>
-
 <script>
 export default {
-  name: "HomePage"
+  name: 'HomePage',
 }
 </script>
 
+<template>
+  123
+</template>

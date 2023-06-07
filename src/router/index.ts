@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
@@ -6,20 +6,20 @@ const routes = [
     name: 'Home',
     component: () => import('@/pages/HomePage.vue'),
     meta: {
-      title: 'Home Page'
-    }
+      title: 'Home Page',
+    },
   },
   {
     path: '/auth',
     name: 'Auth',
     component: () => import('@/pages/AuthPage.vue'),
     meta: {
-      title: 'Authorization Page'
-    }
+      title: 'Authorization Page',
+    },
   },
 ]
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 export default router

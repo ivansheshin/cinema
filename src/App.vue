@@ -1,20 +1,19 @@
 <script lang="ts" setup>
-import TheHeader from "@/widgets/TheHeader.vue";
-import {getAuth} from 'firebase/auth'
+import { getAuth } from 'firebase/auth'
+import TheHeader from '@/widgets/TheHeader.vue'
 
 console.log(getAuth())
 </script>
 
 <template>
-  <TheHeader/>
+  <TheHeader />
   <main class="main">
     <RouterView v-slot="{ Component }" class="router-view">
       <transition name="page page__fade">
-        <component :is="Component"/>
+        <component :is="Component" />
       </transition>
     </RouterView>
   </main>
-
 </template>
 
 <style lang="scss" scoped>

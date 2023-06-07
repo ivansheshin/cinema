@@ -1,3 +1,9 @@
+<script>
+export default {
+  name: 'TheHeader',
+}
+</script>
+
 <template>
   <header class="header">
     <router-link active-class="active" class="auth" to="/">
@@ -6,22 +12,42 @@
     <nav>
       <ul class="nav-list">
         <li v-if="true">
-          <router-link active-class="active" class="auth" no-prefetch to="/auth">
+          <router-link
+            active-class="active"
+            class="auth"
+            no-prefetch
+            to="/auth"
+          >
             Authorization
           </router-link>
         </li>
         <li>
-          <router-link :to="'/films'" active-class="active" class="auth" no-prefetch>
+          <router-link
+            :to="'/films'"
+            active-class="active"
+            class="auth"
+            no-prefetch
+          >
             Films
           </router-link>
         </li>
         <li v-if="true">
-          <router-link :to="'/lk'" active-class="active" class="auth" no-prefetch>
+          <router-link
+            :to="'/lk'"
+            active-class="active"
+            class="auth"
+            no-prefetch
+          >
             Profile
           </router-link>
         </li>
         <li v-if="true">
-          <router-link :to="'/register'" active-class="active" class="auth" no-prefetch>
+          <router-link
+            :to="'/register'"
+            active-class="active"
+            class="auth"
+            no-prefetch
+          >
             Register
           </router-link>
         </li>
@@ -34,12 +60,6 @@
     </nav>
   </header>
 </template>
-
-<script>
-export default {
-  name: "TheHeader"
-}
-</script>
 
 <style scoped>
 .header {
