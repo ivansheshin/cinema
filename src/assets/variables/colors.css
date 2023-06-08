@@ -1,9 +1,11 @@
 :root {
-  --primary-border-color: #121212;
   --primary-background-color: #fff;
   --secondary-background-color: #121212;
 
   /* text */
   --primary-text-color: #fff;
 
+  /* borders */
+  --primary-border-color: #121212;
+  --primary-border: 1px solid var(--primary-border-color);
 }

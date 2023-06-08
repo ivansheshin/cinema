@@ -13,7 +13,7 @@
 .form {
   padding: 26px;
   background-color: var(--primary-background-color);
-  border: 1px solid var(--primary-border-color);
+  border: var(--primary-border);
   border-radius: 4px;
 
   .form__content {
