@@ -12,8 +12,8 @@
 <style lang="css" scoped>
 .form {
   padding: 26px;
-  background-color: var(--background-color);
-  border: 1px solid #121212;
+  background-color: var(--primary-background-color);
+  border: 1px solid var(--primary-border-color);
   border-radius: 4px;
 
   .form__content {

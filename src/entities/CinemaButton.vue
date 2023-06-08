@@ -10,6 +10,9 @@ defineEmits(['click'])
 
 <style lang="css" scoped>
 .cinema-button {
-  padding: 6px;
+  padding: 8px;
+  color: var(--primary-text-color);
+  background-color: var(--secondary-background-color);
+  border: 1px solid var(--primary-border-color);
 }
 </style>

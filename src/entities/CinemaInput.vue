@@ -1,7 +1,13 @@
 <script lang="ts" setup>
 
+defineEmits(['update:inputValue'])
+
 defineProps({
   type: {
+    type: String,
+    required: true,
+  },
+  inputValue: {
     type: String,
     required: true,
   },
@@ -11,10 +17,16 @@ defineProps({
     default: '',
   },
 })
+
 </script>
 
 <template>
-  <input :placeholder="placeholder" :type="type" class="cinema-input">
+  <input
+    :placeholder="placeholder"
+    :type="type"
+    class="cinema-input"
+    @input="$emit('update:inputValue', $event.target.value)"
+  >
 </template>
 
 <style lang="css" scoped>

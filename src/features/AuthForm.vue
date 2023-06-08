@@ -7,7 +7,7 @@ import CinemaInput from '@/entities/CinemaInput.vue'
 const login = ref('')
 const password = ref('')
 
-function send() {
+function send(): void {
   console.log(1)
 }
 </script>
@@ -15,11 +15,11 @@ function send() {
 <template>
   <CinemaForm>
     <template #title>
-      <h3>Авторизация</h3>
+      <h3>Authorization</h3>
     </template>
     <template #fields>
-      <CinemaInput v-model="login" placeholder="Login" type="text" />
-      <CinemaInput v-model="password" placeholder="Password" type="password" />
+      <CinemaInput v-model:input-value="login" placeholder="Login" type="text" />
+      <CinemaInput v-model:input-value="password" placeholder="Password" type="password" />
     </template>
     <template #actions>
       <CinemaButton @click="send">

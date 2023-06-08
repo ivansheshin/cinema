@@ -67,7 +67,8 @@
   min-height: 50px;
   padding: 0 20px;
   color: #fff;
-  background-color: #c3195d;
+  background-color: var(--primary-background-color);
+  border-bottom: 1px solid var(--primary-border-color);
 }
 
 .nav-list {
@@ -79,11 +80,10 @@
 
 .auth {
   padding: 6px 8px;
-  color: #141414;
+  color: #121212;
   text-decoration: none;
   background-color: #fff;
   border: none;
-  border-radius: 4px;
   transition: all 0.5s;
 }
 

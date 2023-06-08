@@ -1,4 +1,9 @@
 :root {
-  --border: #121212;
-  --background-color: #fff;
+  --primary-border-color: #121212;
+  --primary-background-color: #fff;
+  --secondary-background-color: #121212;
+
+  /* text */
+  --primary-text-color: #fff;
+
 }
