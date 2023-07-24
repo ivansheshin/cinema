@@ -17,6 +17,14 @@ const routes = [
       title: 'Authorization Page',
     },
   },
+  {
+    path: '/films',
+    name: 'Films',
+    component: () => import('@/pages/FilmsPage.vue'),
+    meta: {
+      title: 'Films Page',
+    },
+  },
 ]
 
 const router = createRouter({
