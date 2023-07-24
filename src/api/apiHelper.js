@@ -3,7 +3,7 @@ import axios from 'axios'
 axios.interceptors.request.use(
   (config) => {
     const axiosConfig = config
-    axiosConfig.headers['x-api-key'] = import.meta.env.VITE_CINEMA_API_KEY
+    axiosConfig.headers['x-api-key'] = import.meta.env.VITE_APP_CINEMA_API_KEY
     return axiosConfig
   },
   (error) => Promise.reject(error),
