@@ -76,4 +76,8 @@ input:read-only {
   cursor: default;
 }
 
+h1 {
+  margin-bottom: 1rem;
+}
+
 
