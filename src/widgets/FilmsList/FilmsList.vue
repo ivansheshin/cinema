@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-// TODO: need fix type
 import api from './api'
 import { IFilm, ISearchParams } from './types'
 import CinemaFilmCard from '@/features/FilmCard/FilmCard.vue'
@@ -16,7 +15,7 @@ async function getFilms() {
 
   if (!data) return
 
-  films.value = data.docs.map((film: { [key: string]: any }) => ({
+  films.value = data.docs.map((film: Record<string, any>) => ({
     id: film.id,
     title: film.name,
     description: film.shortDescription,
