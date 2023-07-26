@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '@/stores/user'
+
+const { getUser } = storeToRefs(useUserStore())
+</script>
+
 <template>
   <header class="header">
     <router-link active-class="active" class="auth" to="/">
@@ -27,25 +34,25 @@
         </li>
         <li v-if="true">
           <router-link
-            :to="'/lk'"
             active-class="active"
             class="auth"
             no-prefetch
+            to="/lk"
           >
             Profile
           </router-link>
         </li>
         <li v-if="true">
           <router-link
-            :to="'/register'"
             active-class="active"
             class="auth"
             no-prefetch
+            to="/register"
           >
             Register
           </router-link>
         </li>
-        <li v-if="true">
+        <li v-if="getUser">
           <button class="auth">
             Logout
           </button>

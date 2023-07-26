@@ -25,7 +25,7 @@ function send(): void {
 <template>
   <CinemaForm>
     <template #title>
-      <h3>Authorization</h3>
+      <h3>Registration</h3>
     </template>
     <template #fields>
       <CinemaInput v-model:input-value="email" placeholder="Login" type="text" />
