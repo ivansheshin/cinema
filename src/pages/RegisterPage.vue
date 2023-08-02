@@ -1,17 +1,16 @@
 <script lang="ts" setup>
-
-import AuthForm from '@/features/AuthForm.vue'
+import RegisterForm from '@/features/RegisterForm.vue'
 </script>
 
 <template>
-  <section class="auth-page">
-    <AuthForm class="auth-form" />
+  <section class="register-page">
+    <RegisterForm class="register-form" />
   </section>
 </template>
 
 <style lang="css" scoped>
-.auth-page {
-  .auth-form {
+.register-page {
+  .register-form {
     width: 100%;
 
     @media (width >= 600px) {

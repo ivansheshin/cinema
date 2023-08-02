@@ -1,8 +1,27 @@
 <script lang="ts" setup>
-import { getAuth } from 'firebase/auth'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { onMounted } from 'vue'
 import TheHeader from '@/widgets/TheHeader.vue'
+import { useUserStore } from '@/stores/user'
 
 console.log(getAuth())
+
+const { setUser } = useUserStore()
+
+function firebaseAuth(): void {
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setUser(user)
+    } else {
+      setUser(null)
+    }
+  })
+}
+
+onMounted(() => {
+  firebaseAuth()
+})
 </script>
 
 <template>
