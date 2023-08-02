@@ -1,8 +1,21 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
+import { getAuth } from 'firebase/auth'
 import { useUserStore } from '@/stores/user'
+import { authorizedNavListRoutes, unAuthorizedNavListRoutes } from '@/static/navigationList'
+
+const { setUser } = useUserStore()
 
 const { getUser } = storeToRefs(useUserStore())
+const navList = computed(() => (getUser.value ? authorizedNavListRoutes : unAuthorizedNavListRoutes))
+
+function logout() {
+  const auth = getAuth()
+  auth.signOut()
+  setUser(null)
+}
+
 </script>
 
 <template>
@@ -12,48 +25,18 @@ const { getUser } = storeToRefs(useUserStore())
     </router-link>
     <nav>
       <ul class="nav-list">
-        <li v-if="true">
+        <li v-for="item in navList" :key="item.name">
           <router-link
-            active-class="active"
-            class="auth"
-            no-prefetch
-            to="/auth"
-          >
-            Authorization
-          </router-link>
-        </li>
-        <li>
-          <router-link
-            :to="'/films'"
+            :to="item.path"
             active-class="active"
             class="auth"
             no-prefetch
           >
-            Films
-          </router-link>
-        </li>
-        <li v-if="true">
-          <router-link
-            active-class="active"
-            class="auth"
-            no-prefetch
-            to="/lk"
-          >
-            Profile
-          </router-link>
-        </li>
-        <li v-if="true">
-          <router-link
-            active-class="active"
-            class="auth"
-            no-prefetch
-            to="/register"
-          >
-            Register
+            {{ item.name }}
           </router-link>
         </li>
         <li v-if="getUser">
-          <button class="auth">
+          <button class="auth" @click="logout">
             Logout
           </button>
         </li>
