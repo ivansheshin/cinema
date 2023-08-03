@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import CinemaCard from '@/entities/CinemaCard.vue'
 import type { IFilmCard } from '@/features/FilmCard/types'
 
 interface IProps {
@@ -13,23 +12,40 @@ withDefaults(defineProps<IProps>(), {
 </script>
 
 <template>
-  <CinemaCard v-if="film">
-    <template v-if="film.logo" #logo>
-      <img :src="film.logo" alt="Logo" width="140">
-    </template>
-    <template v-if="film.title" #title>
-      <h2>{{ film.title }}</h2>
-    </template>
-    <template v-if="film.description" #description>
-      <p class="description">
+  <div v-if="film" class="film-card">
+    <div class="film-card__content">
+      <img
+        v-if="film.logo"
+        :src="film.logo"
+        alt="Logo"
+        width="140"
+      >
+      <h2 v-if="film.title">
+        {{ film.title }}
+      </h2>
+      <p v-if="film.description" class="description">
         {{ film.description }}
       </p>
-    </template>
-  </CinemaCard>
+    </div>
+  </div>
 </template>
 
 <style lang="css" scoped>
-.description {
-  text-overflow: ellipsis;
+.film-card {
+  padding: 26px;
+  background-color: var(--primary-background-color);
+  border: var(--primary-border);
+  border-radius: 4px;
+
+  .film-card__content {
+    display: grid;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .description {
+      text-overflow: ellipsis;
+    }
+  }
 }
 </style>

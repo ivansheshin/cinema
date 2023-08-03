@@ -4,7 +4,7 @@ import { computed, ref } from 'vue'
 export const useUserStore = defineStore('user', () => {
   const user = ref<Record<string, unknown> | null>(null)
 
-  function setUser(newUser: Record<string, unknown>) {
+  function setUser(newUser: Record<string, unknown> | null) {
     user.value = newUser
   }
 

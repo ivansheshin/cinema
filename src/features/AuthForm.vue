@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import CinemaForm from '@/entities/CinemaForm.vue'
-import CinemaButton from '@/entities/CinemaButton.vue'
-import CinemaInput from '@/entities/CinemaInput.vue'
-import { useUserStore } from '@/stores/user'
+import CinemaForm from '@/shared/CinemaForm.vue'
+import CinemaButton from '@/shared/CinemaButton.vue'
+import CinemaInput from '@/shared/CinemaInput.vue'
+import { useUserStore } from '@/shared/store/user'
 
 const email = ref<string>('')
 const password = ref<string>('')
@@ -17,7 +17,7 @@ function send(): void {
   signInWithEmailAndPassword(auth, email.value, password.value)
     .then((userCredential) => {
       const { user } = userCredential
-      setUser(user)
+      setUser(user as unknown as Record<string, unknown>)
     })
     .catch((error) => {
       console.log(error)

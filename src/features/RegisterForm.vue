@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
-import CinemaForm from '@/entities/CinemaForm.vue'
-import CinemaButton from '@/entities/CinemaButton.vue'
-import CinemaInput from '@/entities/CinemaInput.vue'
+import CinemaForm from '@/shared/CinemaForm.vue'
+import CinemaButton from '@/shared/CinemaButton.vue'
+import CinemaInput from '@/shared/CinemaInput.vue'
+import { writeUserInfo } from '@/shared/services/writeUser'
 
 const email = ref<string>('')
 const password = ref<string>('')
@@ -12,9 +13,9 @@ const auth = getAuth()
 
 function send(): void {
   createUserWithEmailAndPassword(auth, email.value, password.value)
-    .then((userCredential) => {
-      const { user } = userCredential
-      console.log(user)
+    .then(() => {
+      console.log(auth)
+      writeUserInfo(email.value, Number(auth.currentUser?.uid))
     })
     .catch((error) => {
       console.log(error)
