@@ -10,7 +10,7 @@ function firebaseAuth(): void {
   const auth = getAuth()
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      setUser(user)
+      setUser(user as unknown as Record<string, unknown>)
     } else {
       setUser(null)
     }

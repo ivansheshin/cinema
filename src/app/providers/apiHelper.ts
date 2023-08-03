@@ -16,9 +16,7 @@ axios.interceptors.request.use(
   (error) => Promise.reject(error),
 )
 
-export const apiHelper = async <T>(method: TMethod, url: string, body: Record<string, unknown>): Promise<
-    { data: T | null; error: { text: string | undefined; status: number | undefined } | null }
-> => {
+export const apiHelper = async(method: TMethod, url: string, body: Record<string, unknown>) => {
   const baseUrl = 'https://api.kinopoisk.dev'
 
   try {

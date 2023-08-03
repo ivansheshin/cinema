@@ -15,7 +15,7 @@ function send(): void {
   createUserWithEmailAndPassword(auth, email.value, password.value)
     .then(() => {
       console.log(auth)
-      writeUserInfo(email.value, auth.currentUser?.uid)
+      writeUserInfo(email.value, Number(auth.currentUser?.uid))
     })
     .catch((error) => {
       console.log(error)

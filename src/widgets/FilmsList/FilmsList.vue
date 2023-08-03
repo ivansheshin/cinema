@@ -15,6 +15,7 @@ async function getFilms() {
 
   if (!data) return
 
+  // TODO: check any case
   films.value = data.docs.map((film: Record<string, any>) => ({
     id: film.id,
     title: film.name,

@@ -17,7 +17,7 @@ function send(): void {
   signInWithEmailAndPassword(auth, email.value, password.value)
     .then((userCredential) => {
       const { user } = userCredential
-      setUser(user)
+      setUser(user as unknown as Record<string, unknown>)
     })
     .catch((error) => {
       console.log(error)
