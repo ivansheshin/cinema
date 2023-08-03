@@ -2,9 +2,7 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { onMounted } from 'vue'
 import TheHeader from '@/widgets/TheHeader.vue'
-import { useUserStore } from '@/stores/user'
-
-console.log(getAuth())
+import { useUserStore } from '@/app/providers/store/user'
 
 const { setUser } = useUserStore()
 

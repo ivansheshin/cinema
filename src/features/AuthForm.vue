@@ -4,7 +4,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import CinemaForm from '@/entities/CinemaForm.vue'
 import CinemaButton from '@/entities/CinemaButton.vue'
 import CinemaInput from '@/entities/CinemaInput.vue'
-import { useUserStore } from '@/stores/user'
+import { useUserStore } from '@/app/providers/store/user'
 
 const email = ref<string>('')
 const password = ref<string>('')
