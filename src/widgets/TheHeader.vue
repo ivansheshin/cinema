@@ -2,8 +2,8 @@
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { getAuth } from 'firebase/auth'
-import { useUserStore } from '@/app/providers/store/user'
-import { authorizedNavListRoutes, unAuthorizedNavListRoutes } from '@/static/navigationList'
+import { useUserStore } from '@/shared/store/user'
+import { authorizedNavListRoutes, unAuthorizedNavListRoutes } from '@/app/static/navigationList'
 
 const { setUser } = useUserStore()
 
