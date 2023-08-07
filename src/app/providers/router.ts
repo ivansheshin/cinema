@@ -33,6 +33,14 @@ const routes = [
       title: 'Register Page',
     },
   },
+  {
+    path: '/profile/:id',
+    name: 'Profile',
+    component: () => import('@/pages/ProfilePage.vue'),
+    meta: {
+      title: 'Profile Page',
+    },
+  },
 ]
 
 const router = createRouter({

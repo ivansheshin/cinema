@@ -10,7 +10,7 @@ export const authorizedNavListRoutes: INavList[] = [
   },
   {
     name: 'Profile',
-    path: '/lk',
+    path: '/profile',
   },
 ]
 
