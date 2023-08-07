@@ -8,10 +8,6 @@ export const authorizedNavListRoutes: INavList[] = [
     name: 'Films',
     path: '/films',
   },
-  {
-    name: 'Profile',
-    path: '/profile',
-  },
 ]
 
 export const unAuthorizedNavListRoutes: INavList[] = [

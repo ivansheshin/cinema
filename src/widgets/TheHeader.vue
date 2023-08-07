@@ -36,6 +36,11 @@ function logout() {
           </router-link>
         </li>
         <li v-if="getUser">
+          <router-link :to="{name: 'Profile', params: {id: getUser.uid}}" active-class="active" class="auth">
+            Profile
+          </router-link>
+        </li>
+        <li v-if="getUser">
           <button class="auth" @click="logout">
             Logout
           </button>

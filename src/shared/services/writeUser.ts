@@ -1,9 +1,10 @@
 import { getDatabase, ref, set } from 'firebase/database'
+import { IUser } from '@/shared/types/user'
 
-export function writeUserInfo(name: string, id: number): void {
+export function writeUserInfo(userData: IUser, id: string): void {
   const db = getDatabase()
   set(ref(db, `users/${id}`), {
-    username: name,
-    email: name,
+    name: userData.name,
+    email: userData.email,
   })
 }
