@@ -1,49 +1,57 @@
 <script lang="ts" setup>
 import {
-  child, get, getDatabase, ref as firebaseRef,
+  child, get, getDatabase, ref as firebaseRef, update,
 } from 'firebase/database'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import {
   getDownloadURL, getStorage, ref as firebaseRefStore, uploadBytes,
 } from 'firebase/storage'
+import { storeToRefs } from 'pinia'
 import { IUser } from '@/shared/types/user'
+import { useUserStore } from '@/shared/store/user'
+
+const user = ref<IUser>()
 
 const route = useRoute()
-
+const { getUser } = storeToRefs(useUserStore())
 const fileInput = ref()
 const avatar = ref<string>('')
-const imageUrl = ref<string>()
+const { setCustomProperty } = useUserStore()
 
 const storage = getStorage()
-const storageRef = firebaseRefStore(storage, `images/${route.params.id}/${avatar.value.name}`)
+const storageRef = computed(() => firebaseRefStore(storage, `images/${route.params.id}/avatar`))
+const incognitoDBRef = firebaseRefStore(storage, 'common/images/incognito.jpg')
+
+const usedDb = computed(() => (user.value.imageUrl ? storageRef.value : incognitoDBRef))
 
 function setAvatar() {
-  // eslint-disable-next-line prefer-destructuring
-  avatar.value = fileInput.value.files[0]
+  if (fileInput.value.files.length > 1) return
+  [avatar.value] = fileInput.value.files
 }
 
-async function upload() {
-  await uploadBytes(storageRef, avatar.value)
-
-  await getDownloadURL(storageRef)
+async function getImageUrl() {
+  await getDownloadURL(usedDb.value)
     .then((url) => {
-      imageUrl.value = url
-      console.log(imageUrl.value)
+      setCustomProperty('imageUrl', url)
     })
     .catch((error) => {
       switch (error.code) {
         case 'storage/object-not-found':
-          alert('File doesn\'t exist')
+          // eslint-disable-next-line no-console
+          console.error('File doesn\'t exist')
           break
         case 'storage/unauthorized':
-          alert('User doesn\'t have permission to access the object')
+          // eslint-disable-next-line no-console
+          console.error('User doesn\'t have permission to access the object')
           break
         case 'storage/canceled':
-          alert('User canceled the upload')
+          // eslint-disable-next-line no-console
+          console.error('User canceled the upload')
           break
         case 'storage/unknown':
-          alert('Unknown error occurred, inspect the server response')
+          // eslint-disable-next-line no-console
+          console.error('Unknown error occurred, inspect the server response')
           break
 
         default:
@@ -52,12 +60,27 @@ async function upload() {
     })
 }
 
-const user = ref<IUser>()
 const dbRef = firebaseRef(getDatabase())
-onMounted(() => {
-  get(child(dbRef, `users/${route.params.id}`)).then((snapshot) => {
+
+async function upload() {
+  if (!avatar.value) return
+  await uploadBytes(storageRef.value, avatar.value)
+  const fbDb = firebaseRef(getDatabase(), `users/${route.params.id}`)
+  await update(fbDb, {
+    imageUrl: avatar.value.name,
+  })
+  await getImageUrl()
+}
+
+async function fetchAndSetUser() {
+  await get(child(dbRef, `users/${route.params.id}`)).then((snapshot) => {
     user.value = snapshot.val()
   })
+  await getImageUrl()
+}
+
+onMounted(() => {
+  fetchAndSetUser()
 })
 </script>
 
@@ -72,7 +95,7 @@ onMounted(() => {
       <button>
         Upload
       </button>
-      <img :src="imageUrl">
+      <img v-if="getUser && getUser.imageUrl && user" :alt="user.name" :src="getUser.imageUrl">
     </form>
   </div>
 </template>
