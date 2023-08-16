@@ -1,9 +1,7 @@
-<script>
-export default {
-  name: 'HomePage',
-}
+<script lang="ts" setup>
+import NewsList from '@/widgets/NewsList/NewsList.vue'
 </script>
 
 <template>
-  123
+  <NewsList />
 </template>

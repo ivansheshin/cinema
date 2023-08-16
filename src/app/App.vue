@@ -39,7 +39,9 @@ onBeforeMount(() => {
 }
 
 .router-view {
+  max-width: 1278px;
   height: 100%;
+  margin: 0 auto;
   padding: 16px;
 
   &__fade-enter-active {

@@ -14,6 +14,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
     'vue/html-self-closing': ['error', {
       html: {
         void: 'never',
