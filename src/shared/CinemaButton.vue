@@ -1,9 +1,20 @@
 <script lang="ts" setup>
 defineEmits(['click'])
+
+interface IProps {
+  disabled?: boolean
+}
+
+defineProps<IProps>()
 </script>
 
 <template>
-  <button class="cinema-button" type="button" @click="$emit('click')">
+  <button
+    :disabled="disabled"
+    class="cinema-button"
+    type="button"
+    @click="$emit('click')"
+  >
     <slot />
   </button>
 </template>
