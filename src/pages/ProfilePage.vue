@@ -86,16 +86,25 @@ onMounted(() => {
 
 <template>
   <div>
-    <h1>Profile Page</h1>
-    <p v-if="user">
-      {{ user.name }}
-    </p>
+    <img
+      v-if="getUser && getUser.imageUrl && user"
+      :alt="user.name"
+      :src="getUser.imageUrl"
+      width="280"
+    >
     <form @submit.prevent="upload">
-      <input ref="fileInput" type="file" @change="setAvatar">
-      <button>
-        Upload
-      </button>
-      <img v-if="getUser && getUser.imageUrl && user" :alt="user.name" :src="getUser.imageUrl">
+      <div>
+        <!--        TODO: add this logic to the settings page-->
+        <div style="display: none">
+          <input ref="fileInput" type="file" @change="setAvatar">
+          <button type="button">
+            Upload
+          </button>
+        </div>
+        <p v-if="user">
+          {{ user.name }}
+        </p>
+      </div>
     </form>
   </div>
 </template>
